@@ -1,0 +1,13 @@
+# Deploy: pnpm dlx wrangler deploy  (after `wrangler login` / CLOUDFLARE_API_TOKEN)
+# Secret:  pnpm dlx wrangler secret put DATABASE_URL   (Supabase session pooler URL)
+name = "dailymenu"
+main = "src/worker.ts"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "../web/dist"
+binding = "ASSETS"
+
+[observability]
+enabled = true

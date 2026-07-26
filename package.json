@@ -1,0 +1,16 @@
+{
+  "name": "dailymenu",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "seed:osm": "node pipeline/src/seed-osm.mjs",
+    "db:load": "tsx pipeline/src/load-seed.ts",
+    "dev:api": "pnpm --filter @dailymenu/api dev",
+    "dev:web": "pnpm --filter @dailymenu/web dev"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}
