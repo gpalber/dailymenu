@@ -50,10 +50,10 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 ## C. Phased delivery (vertical slices, each with a verify gate)
 
 ### Slice 0 — Foundations + seed (days 1–2)
-- [ ] `git init`, pnpm monorepo scaffold, Supabase project, schema v1 with provenance built in: `restaurants`, `crawl_sources`, `snapshots` (R2 key, content_hash, fetched_at, http_status), `extractions` (model, prompt_version, schema_version, output jsonb, confidence, tokens), `menu_offers` (kind, price_eur, price_notes, freshness enum, as_of_date, extraction_id), `dishes`, `eval_labels`
-- [ ] Overpass seed for Centro/Salamanca/Chamberí: `amenity in (restaurant, bar, cafe)` + tags (website, contact:instagram, opening_hours, cuisine); OSM attribution wired into UI from day one
-- [ ] Skeleton API (`GET /restaurants?lat&lng&radius`) + bare list UI deployed to public workers.dev URL
-- [ ] **Verify:** ≥300 restaurants live at the public URL with district/geo filters working
+- [x] `git init`, pnpm monorepo scaffold, schema v1 with provenance built in (2026-07-27). Dev DB = embedded PGlite (Docker daemon unavailable in sandbox); prod = Supabase, same migrations. Supabase project itself: pending credentials.
+- [x] Overpass seed for Centro/Salamanca/Chamberí (2026-07-27): **3,591 named venues** (Centro 2,272 / Chamberí 739 / Salamanca 580; 2,337 restaurants, 717 bars, 537 cafés). Coverage signals: website 35% (1,259), instagram 2%, opening_hours 16%. OSM attribution in UI ✓
+- [x] Skeleton API + bare list UI **verified locally** (2026-07-27): /health, radius query (Puerta del Sol 400 m → 3 venues at 51/68/71 m), /api/stats, district filters. Public workers.dev deploy: **pending Cloudflare + Supabase credentials**
+- [ ] **Verify (remaining):** same checks green at the public URL after deploy
 
 ### Slice 1 — Crawl + classify + eval (week 1)
 - [ ] Website discovery chain (OSM tag → TA details → Brave), stored per-restaurant with discovery provenance

@@ -24,7 +24,20 @@ export async function repoRoot(): Promise<string> {
   return dir;
 }
 
+/** Load <repo root>/.env into process.env if present (no-op on Workers / when absent). */
+export async function loadEnv(): Promise<void> {
+  try {
+    const { existsSync } = await import("node:fs");
+    const { join } = await import("node:path");
+    const envPath = join(await repoRoot(), ".env");
+    if (existsSync(envPath)) process.loadEnvFile(envPath);
+  } catch {
+    /* non-Node runtime or unreadable file — env vars must come from the platform */
+  }
+}
+
 export async function createDb(databaseUrl?: string): Promise<Db> {
+  await loadEnv();
   const url = databaseUrl ?? process.env.DATABASE_URL;
   if (url) {
     const { default: postgres } = await import("postgres");
