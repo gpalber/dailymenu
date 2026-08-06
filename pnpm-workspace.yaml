@@ -4,3 +4,4 @@ packages:
   - "pipeline"
 allowBuilds:
   esbuild: true
+  workerd: true

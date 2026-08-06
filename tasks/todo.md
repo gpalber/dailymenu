@@ -53,7 +53,13 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 - [x] `git init`, pnpm monorepo scaffold, schema v1 with provenance built in (2026-07-27). Dev DB = embedded PGlite (Docker daemon unavailable in sandbox); prod = Supabase, same migrations. Supabase project itself: pending credentials.
 - [x] Overpass seed for Centro/Salamanca/Chamberí (2026-07-27): **3,591 named venues** (Centro 2,272 / Chamberí 739 / Salamanca 580; 2,337 restaurants, 717 bars, 537 cafés). Coverage signals: website 35% (1,259), instagram 2%, opening_hours 16%. OSM attribution in UI ✓
 - [x] Skeleton API + bare list UI **verified locally** (2026-07-27): /health, radius query (Puerta del Sol 400 m → 3 venues at 51/68/71 m), /api/stats, district filters. Public workers.dev deploy: **pending Cloudflare + Supabase credentials**
-- [ ] **Verify (remaining):** same checks green at the public URL after deploy
+- [x] **Verify (2026-08-07): SLICE 0 GATE PASSED.** Public URL live: **https://dailymenu.dailymenu-api.workers.dev** — /health serves 3,591 restaurants from Supabase (`backend: postgres`), radius query verified (La Bohemia, 21 m from Glorieta de Bilbao), web UI served from Worker assets, repo pushed to github.com/gpalber/dailymenu (public).
+- [ ] One-click leftover: **enable R2 in the Cloudflare dashboard** (account-level toggle, free tier; API token can't do it — error 10042). Needed before Slice 1 snapshots.
+
+### Plan amendments (2026-08-07, agreed with Alberto)
+- **€0 LLM strategy for v0:** no Anthropic API key. Extraction = deterministic heuristic first (`model: heuristic-v1` — keyword + price-regex, measured against the eval set), ambiguous residue done by Claude in working sessions (`model: claude-session`). API remains a documented flip-of-a-switch (~€2–5/mo) for hands-off weekly freshness later. Subscription is never wired into CI.
+- **Scope reconfirmed:** current three districts (measured alternatives: Madrid city 7,425 venues ≈ €28 one-off + €5–10/mo; Comunidad 11,560 ≈ €45 + €8–15/mo tiered — deferred post-v0).
+- **TripAdvisor:** legacy Content API sunsets 2026-08-31; Terra API pricing unverifiable pre-signup (only "first 1,000 calls free" advertised). Slice 4 decision pending: defer quotes panel + ship review link-outs (recommended) vs. sign up regardless.
 
 ### Slice 1 — Crawl + classify + eval (week 1)
 - [ ] Website discovery chain (OSM tag → TA details → Brave), stored per-restaurant with discovery provenance
