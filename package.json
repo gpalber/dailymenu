@@ -6,6 +6,11 @@
   "scripts": {
     "seed:osm": "node pipeline/src/seed-osm.mjs",
     "db:load": "tsx pipeline/src/load-seed.ts",
+    "crawl": "tsx pipeline/src/crawl.ts",
+    "classify": "tsx pipeline/src/classify-heuristic.ts",
+    "eval:sample": "tsx pipeline/src/make-eval-sample.ts",
+    "eval": "tsx pipeline/src/eval.ts",
+    "sql": "tsx pipeline/src/sql.ts",
     "dev:api": "pnpm --filter @dailymenu/api dev",
     "dev:web": "pnpm --filter @dailymenu/web dev"
   },

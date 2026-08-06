@@ -81,12 +81,11 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 - [ ] ES/EN locales; PWA installable; performance budget ≤450KB gz initial route
 - [ ] **Verify:** Lighthouse mobile (4G throttle) load ≤3s on the public URL; install-to-homescreen works on a phone
 
-### Slice 4 — TripAdvisor live evidence (week 3)
-- [ ] TA signup + terms re-check (incl. the announced "Terra" platform change); location matching Centro-out, storing **only** `location_id`
-- [ ] Workers proxy endpoint: live-fetch ~5 recent reviews per detail view; per-day quota guard (hide panel gracefully at limit); nothing persisted
-- [ ] Display per TA rules: logo, quotation marks, "A Tripadvisor traveler review" + date, bubble ratings verbatim, 5★-only-if-≥4.0 guard; **menú-mention keyword highlighting** (display-only transform)
-- [ ] Link-outs: TA page, Google Maps place link (plain URL, no API), restaurant Instagram where known
-- [ ] **Verify:** live quotes render for matched restaurants; TA match-rate measured and reported (feeds amended criterion 3)
+### Slice 4 — Review link-outs (week 3) — AMENDED 2026-08-07: TA quotes deferred post-v0
+Rationale: legacy Content API sunsets 2026-08-31 (building on it = building twice); Terra pricing not inspectable pre-signup; no like-for-like alternative exists (Google display-stack-locked, Yelp paid+thin in Madrid, TheFork closed). Decision: Alberto, 2026-08-07.
+- [ ] Detail-page link-outs (plain URLs, zero API): "Reseñas en TripAdvisor" (search deep-link name+Madrid), "Reseñas en Google Maps" (maps search URL), restaurant Instagram/web where known
+- [ ] **Post-v0 ticket:** evaluate Terra API pricing at signup; if it fits the cap, implement the original live-quotes panel (design unchanged: location_id-only storage, live fetch, TA display rules)
+- [ ] **Verify:** link-outs resolve to the right venue for a 30-restaurant sample (measure hit-rate)
 
 ### Slice 5 — Hardening + measurement (week 3)
 - [ ] Weekly cron (CF Cron Trigger → workflow_dispatch): re-crawl hash-gated; per-source change-frequency tracking promotes daily-changing sites to daily crawl
@@ -124,7 +123,7 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 |---|---|---|
 | 1 | ≥300 Madrid restaurants with has-menú classification | unchanged |
 | 2 | Price for ≥60% of menú-positive | unchanged |
-| 3 | ~~Stored review summary + quotes for ≥70%~~ → **live menu-relevant TA quote panel for ≥70% of menú-positive restaurants *that have a TA listing*; TA match-rate reported alongside** | amended (legal) |
+| 3 | ~~Stored review summary + quotes~~ → ~~live TA quote panel~~ → **deferred post-v0** (2026-08-07: legacy API sunset + Terra pricing opaque). v0 ships review link-outs; quotes return via Terra if its pricing fits the cap | deferred |
 | 4 | Every fact shows source + freshness | unchanged — schema-enforced |
 | 5 | Public URL, phone-usable, ≤3s on 4G | unchanged — Lighthouse-measured |
 | 6 | Cost measured & under €10/mo | unchanged — /stats cost log |

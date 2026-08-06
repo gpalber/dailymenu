@@ -7,6 +7,8 @@
     "@dailymenu/db": "workspace:*"
   },
   "devDependencies": {
+    "@types/libsodium-wrappers": "^0.8.2",
+    "libsodium-wrappers": "^0.8.4",
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   }
