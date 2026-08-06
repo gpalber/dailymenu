@@ -106,7 +106,13 @@ export function createApp(getDb: () => Promise<Db>) {
     if (hasMenu) where.push(`mc.offers_menu is true`);
 
     const whereSql = where.length ? `where ${where.join(" and ")}` : "";
-    const orderSql = distanceExpr !== "null" ? `order by distance_m asc` : `order by r.name asc`;
+    // Menú-first ranking: confirmed menú → confirmed no-menú → not yet classified.
+    // Secondary: distance when the query has a location, name otherwise.
+    const menuRank = `case when mc.offers_menu is true then 0 when mc.offers_menu is false then 1 else 2 end`;
+    const orderSql =
+      distanceExpr !== "null"
+        ? `order by ${menuRank}, distance_m asc`
+        : `order by ${menuRank}, r.name asc`;
     params.push(limit);
 
     const rows = await db.query<Row & { distance_m: number | null }>(

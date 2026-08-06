@@ -1,8 +1,25 @@
 import { useEffect, useState } from "react";
 import type { RestaurantListResponse, RestaurantSummary } from "@dailymenu/schema";
 
-// Slice-0 bare list. Real UI (map, filters, PWA, i18n) arrives in Slice 3.
+// Slice-0/1 list. Real UI (map, filters, PWA, i18n) arrives in Slice 3.
 const DISTRICTS = ["Todos", "Centro", "Salamanca", "Chamberí"];
+
+const FRESHNESS_ES: Record<string, string> = {
+  today: "confirmado hoy",
+  recent: "visto recientemente",
+  typical: "menú habitual (sin fecha confirmada)",
+};
+
+// Server already orders menú-first; grouping here mirrors it so the sections are explicit.
+type GroupKey = "menu" | "no_menu" | "pending";
+const groupOf = (r: RestaurantSummary): GroupKey =>
+  r.classification.offers_menu === true ? "menu" : r.classification.offers_menu === false ? "no_menu" : "pending";
+
+const GROUPS: { key: GroupKey; title: string; hint: string; color: string }[] = [
+  { key: "menu", title: "Con menú del día", hint: "Detectado en la web del local — cada dato con su fuente y fecha.", color: "#1a7f37" },
+  { key: "no_menu", title: "Sin menú del día", hint: "Su web no menciona menú del día. Puede que lo sirvan sin anunciarlo.", color: "#666" },
+  { key: "pending", title: "Pendientes de análisis", hint: "Sin web utilizable o pendiente de revisión manual.", color: "#b58900" },
+];
 
 function Badge({ r }: { r: RestaurantSummary }) {
   const c = r.classification;
@@ -51,29 +68,56 @@ export function App() {
       {data && (
         <>
           <p style={{ fontSize: 13, color: "#666" }}>{data.total} locales mostrados</p>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {data.restaurants.map((r) => (
-              <li key={r.id} style={{ borderBottom: "1px solid #eee", padding: "10px 0" }}>
-                <strong>{r.name}</strong>{" "}
-                <span style={{ color: "#999", fontSize: 12 }}>
-                  {r.district} · {r.amenity}
-                  {r.cuisine ? ` · ${r.cuisine.split(";")[0]}` : ""}
-                </span>
-                <div style={{ fontSize: 13 }}>
-                  <Badge r={r} />
-                  {r.current_offer?.price_eur != null && (
-                    <span> · {r.current_offer.price_eur.toFixed(2)} € ({r.current_offer.freshness})</span>
-                  )}
-                  {r.website && (
-                    <>
-                      {" · "}
-                      <a href={r.website} target="_blank" rel="noopener noreferrer">web</a>
-                    </>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
+          {GROUPS.map(({ key, title, hint, color }) => {
+            const items = data.restaurants.filter((r) => groupOf(r) === key);
+            if (items.length === 0) return null;
+            return (
+              <section key={key}>
+                <h2 style={{ fontSize: 15, marginBottom: 2, marginTop: 20, color }}>
+                  {title} ({items.length})
+                </h2>
+                <p style={{ fontSize: 12, color: "#888", margin: "0 0 6px" }}>{hint}</p>
+                <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {items.map((r) => (
+                    <li key={r.id} style={{ borderBottom: "1px solid #eee", padding: "10px 0" }}>
+                      <strong>{r.name}</strong>{" "}
+                      <span style={{ color: "#999", fontSize: 12 }}>
+                        {r.district} · {r.amenity}
+                        {r.cuisine ? ` · ${r.cuisine.split(";")[0]}` : ""}
+                      </span>
+                      <div style={{ fontSize: 13 }}>
+                        <Badge r={r} />
+                        {r.current_offer?.price_eur != null && (
+                          <span> · <strong>{r.current_offer.price_eur.toFixed(2)} €</strong></span>
+                        )}
+                        {r.website && (
+                          <>
+                            {" · "}
+                            <a href={r.website} target="_blank" rel="noopener noreferrer">web</a>
+                          </>
+                        )}
+                      </div>
+                      {r.current_offer && (
+                        <div style={{ fontSize: 11, color: "#999" }}>
+                          {FRESHNESS_ES[r.current_offer.freshness]}
+                          {r.current_offer.provenance.fetched_at &&
+                            ` · visto el ${new Date(r.current_offer.provenance.fetched_at).toLocaleDateString("es-ES")}`}
+                          {r.current_offer.provenance.source_url && (
+                            <>
+                              {" · "}
+                              <a href={r.current_offer.provenance.source_url} target="_blank" rel="noopener noreferrer" style={{ color: "#999" }}>
+                                fuente
+                              </a>
+                            </>
+                          )}
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
         </>
       )}
       <footer style={{ fontSize: 12, color: "#888", marginTop: 24 }}>
