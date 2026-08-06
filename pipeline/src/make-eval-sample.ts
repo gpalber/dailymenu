@@ -6,11 +6,12 @@ import { createDb, repoRoot } from "@dailymenu/db";
 
 const db = await createDb();
 const rows = await db.query<{ id: string; name: string; district: string; website: string }>(
-  `select distinct r.id, r.name, r.district, r.website
-   from restaurants r
-   join crawl_sources cs on cs.restaurant_id = r.id
-   join snapshots s on s.source_id = cs.id
-   order by md5(r.id) limit 100`
+  `select id, name, district, website from (
+     select distinct r.id, r.name, r.district, r.website
+     from restaurants r
+     join crawl_sources cs on cs.restaurant_id = r.id
+     join snapshots s on s.source_id = cs.id
+   ) t order by md5(id::text) limit 100`
 );
 const esc = (s: string) => `"${(s ?? "").replace(/"/g, '""')}"`;
 const csv = [

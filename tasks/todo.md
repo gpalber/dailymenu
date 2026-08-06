@@ -62,11 +62,11 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 - **TripAdvisor:** legacy Content API sunsets 2026-08-31; Terra API pricing unverifiable pre-signup (only "first 1,000 calls free" advertised). Slice 4 decision pending: defer quotes panel + ship review link-outs (recommended) vs. sign up regardless.
 
 ### Slice 1 — Crawl + classify + eval (week 1)
-- [ ] Website discovery chain (OSM tag → TA details → Brave), stored per-restaurant with discovery provenance
-- [ ] Robots-honoring crawler in GH Actions (rate-limited, identified UA, ETag/hash dedupe) → R2 snapshots
-- [ ] Haiku batch call: strict-schema classify `offers_menu_del_dia` (menú del día/ejecutivo/diario/cerrado) + confidence; results in UI with source + fetch date
-- [ ] Eval set: hand-label 100 restaurants (stratified); report precision/recall; gate: **precision ≥0.85** before the label ships in ranking
-- [ ] **Verify:** coverage report (% with website found, % crawlable, % classified) + P/R numbers — honest numbers, whatever they are
+- [x] Website discovery (2026-08-07): OSM tags only for now (1,259 sites, 35%). TA deferred; Brave key not provided (optional) — the 65% without sites stay `unknown` until then. Discovery provenance stored per source.
+- [x] Robots-honoring crawler (2026-08-07): 1,121 hosts in 9.6 min — **1,321 snapshots to R2** (homepages + 447 discovered menu pages + 113 PDFs), 23 robots-blocks honored, content-hash gating live, weekly GitHub Actions cron + sealed secrets. Dead-link reality: 324 fetch errors + 155 HTTP errors (~38% of OSM website tags are stale).
+- [x] Classifier (2026-08-07, amended to €0 path): `heuristic-v1` over 811 crawlable restaurants → **84 offers detected (13 with price), 616 no-mention, 111 residue** for in-session review. Results + provenance live on the public site.
+- [ ] Eval set: `eval/sample-to-label.csv` generated (100 random crawlable restaurants). Next: Claude labels in-session from snapshots, Alberto spot-checks ~30, then `pnpm eval --import` → precision/recall. Gate: precision ≥0.85.
+- [ ] **Verify (remaining):** P/R numbers from the labeled set; residue queue worked through in-session; PDF parsing (Slice 2) expected to convert some "no"→"sí" (113 unparsed PDFs).
 
 ### Slice 2 — Price + dishes + freshness (week 2)
 - [ ] Extraction schema: price + variants (weekday/weekend, terraza, takeaway), courses, freshness (`today`/`recent`+date/`typical`), never-fabricate rule enforced by schema (missing = null)
