@@ -56,6 +56,19 @@ One-or-two-line justification each; all choices are boring, portable, and free-t
 - [x] **Verify (2026-08-07): SLICE 0 GATE PASSED.** Public URL live: **https://dailymenu.dailymenu-api.workers.dev** — /health serves 3,591 restaurants from Supabase (`backend: postgres`), radius query verified (La Bohemia, 21 m from Glorieta de Bilbao), web UI served from Worker assets, repo pushed to github.com/gpalber/dailymenu (public).
 - [ ] One-click leftover: **enable R2 in the Cloudflare dashboard** (account-level toggle, free tier; API token can't do it — error 10042). Needed before Slice 1 snapshots.
 
+### Measured running cost (2026-08-07) — criterion 6 evidence
+Measured, not estimated. Total: **€0.00/month.** Nothing on the account can bill at current usage.
+
+| Service | Measured usage | Free limit | % used | First thing that would bill |
+|---|---|---|---|---|
+| Cloudflare R2 | ~46 MB, 1,336 objects | 10 GB, 1M writes/mo | ~0.5% | ~16 years of weekly crawls at current growth (~50 MB/mo, hash-gated) |
+| Supabase Postgres | 13 MB | 500 MB | 2.6% | ~5 years (extraction rows dominate; prunable — R2 snapshots are source of truth) |
+| Cloudflare Workers | tens of req/day | 100,000 req/day | <0.1% | ~100k daily requests ≈ thousands of real users |
+| GitHub Actions | ~10 min/week | unlimited (public repo) | — | only if repo went private |
+| LLM | €0 (heuristic-v1) | — | — | only if we opt into the Anthropic API later |
+
+Watch-outs (reliability, not cost): Supabase free tier pauses after 7 idle days — the weekly cron's writes prevent this, so a silently failing cron is the real risk; R2 requires a payment method on file, so a runaway loop is the only realistic billing path (crawler is rate-limited and hash-gated).
+
 ### Plan amendments (2026-08-07, agreed with Alberto)
 - **€0 LLM strategy for v0:** no Anthropic API key. Extraction = deterministic heuristic first (`model: heuristic-v1` — keyword + price-regex, measured against the eval set), ambiguous residue done by Claude in working sessions (`model: claude-session`). API remains a documented flip-of-a-switch (~€2–5/mo) for hands-off weekly freshness later. Subscription is never wired into CI.
 - **Scope reconfirmed:** current three districts (measured alternatives: Madrid city 7,425 venues ≈ €28 one-off + €5–10/mo; Comunidad 11,560 ≈ €45 + €8–15/mo tiered — deferred post-v0).
