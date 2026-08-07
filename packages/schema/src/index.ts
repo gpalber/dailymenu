@@ -35,6 +35,9 @@ export const RestaurantSummarySchema = z.object({
   amenity: z.string(),
   cuisine: z.string().nullable(),
   website: z.string().nullable(),
+  // Street address disambiguates chains sharing a name (e.g. several "100 Montaditos").
+  addr_street: z.string().nullable(),
+  addr_housenumber: z.string().nullable(),
   distance_m: z.number().nullable(), // present when the query had a location
   classification: ClassificationSchema,
   current_offer: CurrentOfferSchema.nullable(),
@@ -61,7 +64,13 @@ export type RestaurantDetail = z.infer<typeof RestaurantDetailSchema>;
 
 export const RestaurantListResponseSchema = z.object({
   restaurants: z.array(RestaurantSummarySchema),
+  /** Rows in this page. */
+  count: z.number(),
+  /** Rows matching the filters across all pages. */
   total: z.number(),
+  limit: z.number(),
+  offset: z.number(),
+  has_more: z.boolean(),
   attribution: z.literal("Datos de restaurantes © OpenStreetMap contributors (ODbL)"),
 });
 export type RestaurantListResponse = z.infer<typeof RestaurantListResponseSchema>;

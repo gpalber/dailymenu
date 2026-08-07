@@ -39,6 +39,8 @@ function toSummary(row: Row, distanceM: number | null) {
     amenity: row.amenity,
     cuisine: row.cuisine ?? null,
     website: row.website ?? null,
+    addr_street: (row.addr_street as string | null) ?? null,
+    addr_housenumber: (row.addr_housenumber as string | null) ?? null,
     distance_m: distanceM,
     classification: {
       offers_menu: (row.offers_menu as boolean | null) ?? null,
@@ -79,7 +81,8 @@ export function createApp(getDb: () => Promise<Db>) {
     const radiusM = Math.min(Number(c.req.query("radius_m") ?? 800), 5000);
     const district = c.req.query("district") ?? null;
     const hasMenu = c.req.query("has_menu") === "true";
-    const limit = Math.min(Number(c.req.query("limit") ?? 50), 200);
+    const limit = Math.min(Math.max(Number(c.req.query("limit") ?? 50), 1), 200);
+    const offset = Math.max(Number(c.req.query("offset") ?? 0), 0);
 
     const where: string[] = [];
     const params: unknown[] = [];
@@ -107,17 +110,25 @@ export function createApp(getDb: () => Promise<Db>) {
 
     const whereSql = where.length ? `where ${where.join(" and ")}` : "";
     // Menú-first ranking: confirmed menú → confirmed no-menú → not yet classified.
-    // Secondary: distance when the query has a location, name otherwise.
+    // Secondary: distance when the query has a location, name otherwise. Tie-break on id
+    // so paging is stable (chains share a name; without this, rows can repeat across pages).
     const menuRank = `case when mc.offers_menu is true then 0 when mc.offers_menu is false then 1 else 2 end`;
     const orderSql =
       distanceExpr !== "null"
-        ? `order by ${menuRank}, distance_m asc`
-        : `order by ${menuRank}, r.name asc`;
-    params.push(limit);
+        ? `order by ${menuRank}, distance_m asc, r.id`
+        : `order by ${menuRank}, r.name asc, r.id`;
 
+    // Total across all pages, same filters (params so far are the WHERE params only).
+    const [{ n: total }] = await db.query<{ n: number | string }>(
+      `select count(*)::int as n from restaurants r
+       left join menu_classifications mc on mc.restaurant_id = r.id ${whereSql}`,
+      params
+    );
+
+    params.push(limit, offset);
     const rows = await db.query<Row & { distance_m: number | null }>(
       `${BASE_SELECT.replace("select r.id", `select ${distanceExpr} as distance_m, r.id`)}
-       ${whereSql} ${orderSql} limit $${params.length}`,
+       ${whereSql} ${orderSql} limit $${params.length - 1} offset $${params.length}`,
       params
     );
 
@@ -125,7 +136,11 @@ export function createApp(getDb: () => Promise<Db>) {
       restaurants: rows.map((r) =>
         toSummary(r, r.distance_m != null ? Math.round(Number(r.distance_m)) : null)
       ),
-      total: rows.length,
+      count: rows.length,
+      total: Number(total),
+      limit,
+      offset,
+      has_more: offset + rows.length < Number(total),
       attribution: OSM_ATTRIBUTION,
     });
   });
