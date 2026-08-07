@@ -28,8 +28,8 @@ jobs:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      - name: Classify (heuristic-v1, no LLM)
-        run: pnpm classify
+      - name: Extract (heuristic-v2 — HTML + PDF, dishes, no LLM)
+        run: pnpm extract
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
