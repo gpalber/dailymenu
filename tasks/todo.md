@@ -81,6 +81,31 @@ Watch-outs (reliability, not cost): Supabase free tier pauses after 7 idle days 
 - [ ] Eval set: `eval/sample-to-label.csv` generated (100 random crawlable restaurants). Next: Claude labels in-session from snapshots, Alberto spot-checks ~30, then `pnpm eval --import` → precision/recall. Gate: precision ≥0.85.
 - [ ] **Verify (remaining):** P/R numbers from the labeled set; residue queue worked through in-session; PDF parsing (Slice 2) expected to convert some "no"→"sí" (113 unparsed PDFs).
 
+### Slice 2 route — measured 2026-08-07, before spending anything
+
+**Triage of the 811 crawled restaurants** (`pnpm exec tsx pipeline/src/triage.ts` → `eval/triage.json`):
+
+| Source shape | Count | Technique needed | Cost |
+|---|---|---|---|
+| HTML with course structure | 198 | menu-block parser — **but many are à-la-carte cartas, not menús** (verified: Cervecería Santa Ana, Artemisa) | €0 |
+| …of those, genuine **menú-del-día block with dishes** | **36** | the complete-record candidates (`eval/complete-candidates.json`) | €0 |
+| PDF menus (already stored) | 41 | `pdfjs-dist` text extraction — no re-crawl | €0 |
+| JS-rendered / empty | 113 | Playwright re-crawl in Actions (free minutes, public repo) | €0 |
+| Image-only menus | 7+ | `tesseract.js` OCR, or in-session vision | €0 |
+| Menú mentioned, no structure | 16 | in-session extraction from stored snapshot | €0 |
+| No menú signal | 436 | genuinely absent from their site — honest "unknown" | — |
+
+**Three real page shapes found, all handled by the schema:**
+- **A — dishes enumerated** (Río Miño): 4 primeros + 4 segundos listed as examples → dishes stored, `freshness=typical`
+- **B — choose-from-carta** (Spitiko): no fixed dish list; composition + exclusions stored in `includes_text`
+- **C — price variants, dishes dynamic** (Terra Mundi): 3 prices captured in `price_notes`, dishes absent (JS) and shown as missing
+
+**Proven end-to-end 2026-08-07** on those three via `pipeline/src/apply-extraction.ts` (model `claude-session`, every record linked to the snapshot it was read from — a provenance mismatch on Terra Mundi was caught and fixed). Río Miño now shows price 13 €/17 €, what's included, serving days, and 8 dishes live on the site.
+
+**Order of work (all €0, most yield first):** 1. menu-block parser · 2. PDF extraction (41) · 3. Playwright for JS pages (113) · 4. OCR/vision for images · 5. in-session extraction for the remainder. **Only after that** is the €5 Brave discovery worth buying — it finds *more websites*, which is worthless until we read the ones we have properly.
+
+Honest projection: 84 → roughly 150–200 menú-positive restaurants, with dish-level detail for perhaps 60–120. Not the full 3,591: most Madrid bars simply don't publish a menu online, which is a fact about the world, not a fixable pipeline defect.
+
 ### Slice 2 — Price + dishes + freshness (week 2)
 - [ ] Extraction schema: price + variants (weekday/weekend, terraza, takeaway), courses, freshness (`today`/`recent`+date/`typical`), never-fabricate rule enforced by schema (missing = null)
 - [ ] Sonnet escalation for low-confidence extractions; PDF text extraction; image-only menus flagged "menu exists, not machine-readable" (no OCR in v0)

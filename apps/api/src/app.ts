@@ -12,6 +12,7 @@ const BASE_SELECT = `
          r.opening_hours_raw, r.osm_type, r.osm_id,
          mc.offers_menu, mc.confidence as classification_confidence,
          mo.id as offer_id, mo.kind as offer_kind, mo.price_eur, mo.price_notes,
+         mo.includes_text, mo.served_text,
          mo.freshness, mo.as_of_date, mo.provenance as offer_provenance, mo.verified_at,
          s.fetched_at as snapshot_fetched_at, cs.url as source_url
   from restaurants r
@@ -50,7 +51,9 @@ function toSummary(row: Row, distanceM: number | null) {
       ? {
           kind: row.offer_kind,
           price_eur: row.price_eur != null ? Number(row.price_eur) : null,
-          price_notes: row.price_notes ?? null,
+          price_notes: (row.price_notes as string | null) ?? null,
+          includes_text: (row.includes_text as string | null) ?? null,
+          served_text: (row.served_text as string | null) ?? null,
           freshness: row.freshness,
           as_of_date: row.as_of_date ?? null,
           provenance: {

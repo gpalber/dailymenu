@@ -21,6 +21,10 @@ export const CurrentOfferSchema = z.object({
   kind: z.string(),
   price_eur: z.number().nullable(),
   price_notes: z.string().nullable(),
+  /** What the menú includes (courses, drink, bread…) as stated by the restaurant. */
+  includes_text: z.string().nullable(),
+  /** When it's served, as stated by the restaurant. */
+  served_text: z.string().nullable(),
   freshness: Freshness,
   as_of_date: z.string().nullable(),
   provenance: ProvenanceSchema,

@@ -80,8 +80,22 @@ function MenuDetail({ detail }: { detail: RestaurantDetail | undefined }) {
           <div style={{ marginBottom: 6 }}>
             <strong>{KIND_ES[offer.kind] ?? "Menú"}</strong>
             {offer.price_eur != null ? ` — ${offer.price_eur.toFixed(2)} €` : " — precio no publicado en su web"}
-            {offer.price_notes && <span style={{ color: "#777" }}> ({offer.price_notes})</span>}
           </div>
+          {offer.price_notes && (
+            <div style={{ marginBottom: 6, color: "#555" }}>
+              <span style={{ color: "#777" }}>Precios:</span> {offer.price_notes}
+            </div>
+          )}
+          {offer.includes_text && (
+            <div style={{ marginBottom: 6, color: "#555" }}>
+              <span style={{ color: "#777" }}>Incluye:</span> {offer.includes_text}
+            </div>
+          )}
+          {offer.served_text && (
+            <div style={{ marginBottom: 6, color: "#555" }}>
+              <span style={{ color: "#777" }}>Se sirve:</span> {offer.served_text}
+            </div>
+          )}
           {byCourse.length > 0 ? (
             byCourse.map((g) => (
               <div key={g.course} style={{ marginBottom: 4 }}>

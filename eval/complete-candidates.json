@@ -1,0 +1,326 @@
+[
+  {
+    "restaurant_id": "3e191a1c-354e-45a2-a5e2-c2072259b27f",
+    "name": "Río Miño",
+    "url": "http://www.xn--riomio-0wa.com/menus-especiales.php",
+    "courses": 4,
+    "dishLines": 57,
+    "score": 32,
+    "excerpt": "Menú del Día 13€ Menú Raciones 18€ Menú Especial I 40€ Menú Especial II 45€ Menú Especial III 50€ Menú del Día 13€ Lunes - Viernes No Festivos Menú del Día 17€ Sabados - Domingos y Festivos El precio del me"
+  },
+  {
+    "restaurant_id": "0010fc80-f054-4644-80e9-39eb5f767e57",
+    "name": "Vips",
+    "url": "https://www.vips.es/",
+    "courses": 4,
+    "dishLines": 41,
+    "score": 32,
+    "excerpt": "Menú del día Disfruta de dos platos, una bebida y un postre de lunes a viernes a partir de las 12:30 Descúbrelo Disfruta desde casa Hazte socio y disfruta de promociones exclusivas en delivery y takeaway Regístrate "
+  },
+  {
+    "restaurant_id": "09712813-c128-466a-9c29-419d389fa189",
+    "name": "Spitiko",
+    "url": "https://spitikomadrid.com",
+    "courses": 4,
+    "dishLines": 47,
+    "score": 32,
+    "excerpt": "Menú del Día Spitiko Horario de lunes a viernes de 13:00 a 16:30 Elige un primer plato + Un segundo plato + Postre o Café 14,50€ * Platos Excluidos (Pikilia, Plato Mixto Carne, Plato Mixto Vegetal, Gyros De"
+  },
+  {
+    "restaurant_id": "73bc7464-844b-4543-928f-1a110ac5028e",
+    "name": "Vips",
+    "url": "https://www.vips.es",
+    "courses": 4,
+    "dishLines": 41,
+    "score": 32,
+    "excerpt": "Menú del día Disfruta de dos platos, una bebida y un postre de lunes a viernes a partir de las 12:30 Descúbrelo Disfruta desde casa Hazte socio y disfruta de promociones exclusivas en delivery y takeaway Regístrate "
+  },
+  {
+    "restaurant_id": "a12d3467-c518-43e2-a1a8-a7671a577e0b",
+    "name": "Vips",
+    "url": "http://vips.es/carta/menu/menu-del-dia-clasico/VP50099.html",
+    "courses": 4,
+    "dishLines": 65,
+    "score": 32,
+    "excerpt": "Menú del Día: come diferente de lunes a viernes | VIPS Saltar al contenido principal Saltar al contenido del pie de página Eliminar producto &iquest;Estás seguro de que quieres eliminar este producto de tu carrito"
+  },
+  {
+    "restaurant_id": "563c5969-b55e-4c2f-8c8b-750f490579dd",
+    "name": "Sra. Smith",
+    "url": "https://www.srasmithrestaurante.com/",
+    "courses": 4,
+    "dishLines": 43,
+    "score": 32,
+    "excerpt": "menú del día Desayuno Smith. Rosquillas de anís Receta tradicional Tartas caseras Elaboración diaria Salados Desayuno de campeones Café y tés Gran selección de café y tés Menú del día Lunes - viernes, labora"
+  },
+  {
+    "restaurant_id": "a12d3467-c518-43e2-a1a8-a7671a577e0b",
+    "name": "Vips",
+    "url": "http://vips.es",
+    "courses": 4,
+    "dishLines": 41,
+    "score": 32,
+    "excerpt": "Menú del día Disfruta de dos platos, una bebida y un postre de lunes a viernes a partir de las 12:30 Descúbrelo Disfruta desde casa Hazte socio y disfruta de promociones exclusivas en delivery y takeaway Regístrate "
+  },
+  {
+    "restaurant_id": "398c0acf-1180-48a5-b003-f80c4d190072",
+    "name": "Yerbabuena",
+    "url": "http://www.yerbabuena.ws/",
+    "courses": 4,
+    "dishLines": 50,
+    "score": 32,
+    "excerpt": "menú del día COCINA SALUDABLE, IMAGINATIVA, COLORISTA Y RESPETUOSA. Yerbabuena Restaurante Vegetariano de la Calle Bordadores Nº3, abrió sus puertas el día 5 de Agosto de 2005. Desde entonces venimos elaborando una coc"
+  },
+  {
+    "restaurant_id": "b8202b4b-f4f0-48df-9a2f-81cc851fafcc",
+    "name": "Vips",
+    "url": "https://www.vips.es",
+    "courses": 4,
+    "dishLines": 41,
+    "score": 32,
+    "excerpt": "Menú del día Disfruta de dos platos, una bebida y un postre de lunes a viernes a partir de las 12:30 Descúbrelo Disfruta desde casa Hazte socio y disfruta de promociones exclusivas en delivery y takeaway Regístrate "
+  },
+  {
+    "restaurant_id": "6854c821-ba3d-4931-bcea-925fbc2f5297",
+    "name": "Restaurante La Chula",
+    "url": "https://www.lachularestaurante.com/men%C3%BA-del-restaurante",
+    "courses": 3,
+    "dishLines": 75,
+    "score": 29,
+    "excerpt": "Menú del dia ...... Galería Contacto Carta MENú ENTRANTES Guacamole hecho al momento Con totopos de maiz 10,90€ Ensaladilla rusa 10,90€ Patatas chulas Salsa kimchii y mahonesa de jalapeño 9,90€ Surtid"
+  },
+  {
+    "restaurant_id": "08e659bd-984a-42be-948f-05af39ea0408",
+    "name": "Taj",
+    "url": "https://restaurantetaj.es/",
+    "courses": 3,
+    "dishLines": 101,
+    "score": 29,
+    "excerpt": "Menu del dia (16,95€) Lunes a viernes Menu de gustacion Vegetariano y no vegetariano ESPECIALIDAD DE LA CASA Suave o picante ENTRANTES NO VEGETARIANO ENTRANTES VEGETARIANOS Vegetariano PLATOS PRINCIPA"
+  },
+  {
+    "restaurant_id": "fe9d7c97-771e-4c78-bb4a-82811b5d4f4b",
+    "name": "Café Varela",
+    "url": "https://www.cafevarela.com/carta/",
+    "courses": 3,
+    "dishLines": 46,
+    "score": 29,
+    "excerpt": "Menu del dia en Madrid Si buscas un menú del día en Madrid que combine calidad, tradición y sabor, Café Varela es el lugar ideal para ti. En pleno centro de Madrid, nuestro restaurante ofrece un menú del día que varía c"
+  },
+  {
+    "restaurant_id": "e5f1af03-3c3d-4941-9111-f611a8d1e8bd",
+    "name": "Terra Mundi",
+    "url": "https://terramundi.net/",
+    "courses": 3,
+    "dishLines": 36,
+    "score": 29,
+    "excerpt": "Menú del día Configura tu menú del día a tu gusto. Selecciona primero, segundo, postre y vinos y sabrás tu precio Primeros Segundos Postres Bebida Precio: Mediodía 15,90 € / Noche 19,90 € / Fin de"
+  },
+  {
+    "restaurant_id": "6854c821-ba3d-4931-bcea-925fbc2f5297",
+    "name": "Restaurante La Chula",
+    "url": "https://www.lachularestaurante.com/menu",
+    "courses": 3,
+    "dishLines": 24,
+    "score": 29,
+    "excerpt": "Menú del dia Inicio Carta Vinos Menú del dia ...... Galería Contacto Menú del dia Menú 28/07/2026 El menú incluye bebida, pan, postre o café 13.00€ PRIMEROS Primeros SALMOREJO MACARRONES CARBONAR"
+  },
+  {
+    "restaurant_id": "a920ace4-be4d-4426-9ad5-d4f83346c0c8",
+    "name": "Baan Pad Thai",
+    "url": "https://baanpadthai.es/",
+    "courses": 3,
+    "dishLines": 47,
+    "score": 29,
+    "excerpt": "Menú del Día por 16,90€ , disponible de lunes a viernes (excepto festivos). Reserva una mesa Entrantes Ensaladas Sopa/Curry Principales Plato Combinado Postres Bebidas Entrantes Kai Satay 11,90€ Broch"
+  },
+  {
+    "restaurant_id": "fe9d7c97-771e-4c78-bb4a-82811b5d4f4b",
+    "name": "Café Varela",
+    "url": "https://www.cafevarela.com/carta-restaurante-gallego/",
+    "courses": 3,
+    "dishLines": 46,
+    "score": 29,
+    "excerpt": "Menu del dia en Madrid Si buscas un menú del día en Madrid que combine calidad, tradición y sabor, Café Varela es el lugar ideal para ti. En pleno centro de Madrid, nuestro restaurante ofrece un menú del día que varía c"
+  },
+  {
+    "restaurant_id": "38e56be2-0a9c-46a4-bfea-46e994af0397",
+    "name": "Bogotá",
+    "url": "https://www.bogotarestaurante.es/men%C3%BA",
+    "courses": 3,
+    "dishLines": 58,
+    "score": 29,
+    "excerpt": "MENú DEL DíA CONTACTO RESERVA ON LINE RESERVAR AHORA RESERVA ON LINE HISTORIA CARTA MENú DEL DíA CONTACTO MENú RESERVA ON LINE 29/7/2026 Menú del día Carta Primeros Crema fría de guisantes Fi"
+  },
+  {
+    "restaurant_id": "42422a31-b661-46fc-b5cc-088c244d6d49",
+    "name": "Ainhoa",
+    "url": "https://restauranteainhoa.es/",
+    "courses": 3,
+    "dishLines": 45,
+    "score": 29,
+    "excerpt": "menú del día está brutal y tiene de todo un poco. Además, el ambiente es acogedor y el trato es muy cercano, como si estuvieras en casa. Con un 4.2 en Restaurant Guru y unas cuantas recomendaciones bajo el brazo, la terr"
+  },
+  {
+    "restaurant_id": "6e795b1f-cccd-4b49-8a7b-1e3c8dd8311a",
+    "name": "Los Arrieros",
+    "url": "http://www.losarrieros.net/menu-del-dia",
+    "courses": 3,
+    "dishLines": 60,
+    "score": 29,
+    "excerpt": "Menú del día Menú Especial del día Menús Especiales Los Arrieros Desayunos Menús Diciembre ESTE SERVICIO ESTÁ DISPONIBLE PARA LLEVAR CON RECOGIDA EN EL LOCAL jueves, 6 de agosto de 2026 Menú del día 16,50 € "
+  },
+  {
+    "restaurant_id": "6e795b1f-cccd-4b49-8a7b-1e3c8dd8311a",
+    "name": "Los Arrieros",
+    "url": "http://www.losarrieros.net/",
+    "courses": 3,
+    "dishLines": 53,
+    "score": 29,
+    "excerpt": "Menú del día 16,50 € Primeros Platos Ensalada Templada. Gazpacho andaluz. Paella mixta. Pisto con huevo. Segundos Platos 1/2 Dorada a la plancha. Albóndigas pigmeias. Pincho moruno. Brocheta de Pollo m"
+  },
+  {
+    "restaurant_id": "06c78756-1026-41a9-b200-e15e1b92f736",
+    "name": "Descaro",
+    "url": "https://www.descarorestaurante.es/planes",
+    "courses": 3,
+    "dishLines": 19,
+    "score": 28,
+    "excerpt": "Menú del día DEL 9 AL 15 DE FEBRERO SAN VALENTÍN En Descaro no creemos en los amores a medias. Celebramos el amor pasional, el incondicional, el que te descoloca, te arrasa y no pide permiso. Y para eso, un solo dí"
+  },
+  {
+    "restaurant_id": "5b573266-9e27-4130-bf5f-decd91c3c3b6",
+    "name": "Cañas y Tapas",
+    "url": "https://canasytapas.es/",
+    "courses": 2,
+    "dishLines": 54,
+    "score": 26,
+    "excerpt": "menú del día! La calidad y frescura de nuestros ingredientes son la base de nuestros platos, garantizando sabores que te transportan a la esencia de España. Celenque Plaza de Celenque, 1 Madrid, España Ver Restaurant"
+  },
+  {
+    "restaurant_id": "b244850b-b896-46ae-828e-65cd4a18ff71",
+    "name": "Arequepay",
+    "url": "https://restaurantearequepay.es/carta/",
+    "courses": 2,
+    "dishLines": 52,
+    "score": 26,
+    "excerpt": "Menú Diario Nosotros Contacto Main Menu Carta Our Menu Menú Diario Nosotros Contacto La Carta con sabor a Perú Te damos la bienvenida a un viaje culinario que celebra una de las gastronomías más aclama"
+  },
+  {
+    "restaurant_id": "d10b2e39-8083-4ab1-b812-790382ced4bb",
+    "name": "Restaurante HAN",
+    "url": "https://www.restaurantehan.com/men-del-da",
+    "courses": 2,
+    "dishLines": 41,
+    "score": 26,
+    "excerpt": "Menú del día &mdash; Restaurante HAN 0 Saltar al contenido Inicio Carta Menú del día Contacto Español Reserve su mesa Abrir menú Cerrar menú Español Reserve su mesa Inicio Carta Menú del día Contact"
+  },
+  {
+    "restaurant_id": "5e04d3d1-4e55-4381-8134-9c30f294420d",
+    "name": "Lara Grill",
+    "url": "https://laragrill.es/menu/",
+    "courses": 2,
+    "dishLines": 65,
+    "score": 26,
+    "excerpt": "menú del día! Disponible únicamente de Lunes a Viernes (No festivos) de 13:00 a 16:15 MENÚ DEL DÍA Carta Completa *Spoiler Alert: tenemos opciones veggies y sin gluten en todos nuestros platos. All 1. Entrantes "
+  },
+  {
+    "restaurant_id": "8253e710-7a81-451a-8a31-32f436b065cd",
+    "name": "Casa Dani",
+    "url": "https://www.casadani.es/carta",
+    "courses": 2,
+    "dishLines": 91,
+    "score": 26,
+    "excerpt": "Menú del día El Blog En los medios Colabora con WCK More Use tab to navigate through the menu items. LOS IMPRESCINDIBLES LA MEJOR TORTILLA DE PATATA DE ESPAñA Con o Sin Cebolla Pincho Media Entera Paisina (con "
+  },
+  {
+    "restaurant_id": "e6379c56-fa08-459f-9e74-136a6f1c9971",
+    "name": "La Tape",
+    "url": "https://latape.com/restaurante-singluten",
+    "courses": 2,
+    "dishLines": 47,
+    "score": 26,
+    "excerpt": "Menú del día del 19 al 23 de julio de 2021 Leyenda de alérgenos: (l) sin lactosa / lactose free (v) plato vegetariano / vegetarian dish (g) plato gluten free / gluten free dish Lunes 19/07 Primeros Salmore"
+  },
+  {
+    "restaurant_id": "8253e710-7a81-451a-8a31-32f436b065cd",
+    "name": "Casa Dani",
+    "url": "https://www.casadani.es/menu-del-dia",
+    "courses": 2,
+    "dishLines": 32,
+    "score": 26,
+    "excerpt": "Menú del día de Casa Dani | Madrid top of page Inicio Pedir a domicilio Horario La Tortilla Tiene Club La familia Trabaja con nosotros Carta Menú del día El Blog En los medios Colabora con WCK More Use ta"
+  },
+  {
+    "restaurant_id": "ab1978eb-cb7b-4576-b5fb-07ee8121d2d4",
+    "name": "Casa Suecia",
+    "url": "https://casasuecia.es/cartas/lobby-bar/",
+    "courses": 2,
+    "dishLines": 36,
+    "score": 26,
+    "excerpt": "Menú ejecutivo De lunes a viernes, a mediodía 21,95 € ENTRANTE (a elegir) Crema de temporada Ensalada con aliño del chef Pucherín (Guiso tradicional con mucho mimo) Risotto de la “Mia Mamma” con Grana Padano "
+  },
+  {
+    "restaurant_id": "fc0636bf-d3ae-4e12-91fb-e21f6c5ebc4b",
+    "name": "Graffiti Moncloa",
+    "url": "https://graffiti-moncloa.webnode.es/menu/",
+    "courses": 2,
+    "dishLines": 47,
+    "score": 26,
+    "excerpt": "Menú del Dia Menú de Lunes a Viernes 1/2 Menú de Lunes a Viernes Menú Fin de Semana y Festivos 1/2 Menú Fin de Semana y Festivos El menú incleye Pan, Bebida, Postre o cafe. 9.50€ 7.50€ 11.50€ 9.50€ Nuetra Ca"
+  },
+  {
+    "restaurant_id": "5a5387ac-3d04-40b3-8a45-ef4344b3b47d",
+    "name": "Cañas y Tapas",
+    "url": "https://canasytapas.es/",
+    "courses": 2,
+    "dishLines": 54,
+    "score": 26,
+    "excerpt": "menú del día! La calidad y frescura de nuestros ingredientes son la base de nuestros platos, garantizando sabores que te transportan a la esencia de España. Celenque Plaza de Celenque, 1 Madrid, España Ver Restaurant"
+  },
+  {
+    "restaurant_id": "76b24ecc-79f3-4668-8c50-3f01a37c26c0",
+    "name": "Serafina",
+    "url": "http://www.serafinacocinabar.com/",
+    "courses": 2,
+    "dishLines": 22,
+    "score": 26,
+    "excerpt": "Menú Diario PRIMER PLATO Arroz meloso de setas y hongos con parmesano. Gazpacho andaluz. Ensalada de queso de cabra, cebolla caramelizada y vinagreta de mostaza. SEGUNDO PLATO Salteado oriental de ternera y verd"
+  },
+  {
+    "restaurant_id": "bb615905-ab0b-4444-9a41-7cd938d3ef10",
+    "name": "La Nieta",
+    "url": "http://www.restaurantelanieta.net/",
+    "courses": 3,
+    "dishLines": 15,
+    "score": 24,
+    "excerpt": "MENú DIARIO 3 PRIMEROS PLATOS (a elegir) 3 SEGUNDOS PLATOS (a elegir) Pan, Bebida y Postre o café P.V.P. 15,50 € * *De lunes a viernes. sábados y festivos 20.50 € Medio menú diario: 12 € Medio menu sabados "
+  },
+  {
+    "restaurant_id": "ade1d015-b329-4712-89a7-ceadf6bbda63",
+    "name": "Los Arcos de Ponzano",
+    "url": "https://www.losarcosdeponzano.es",
+    "courses": 2,
+    "dishLines": 18,
+    "score": 24,
+    "excerpt": "Menú del día Reservar Seleccionar página El clásico de Ponzano desde 1952 Un restaurante tradicional con historia en Madrid. Cocina castellana de toda la vida. Cochinillo, cordero y recetas que saben a hogar. res"
+  },
+  {
+    "restaurant_id": "10946041-e2aa-442b-978c-ffc30de92ad1",
+    "name": "Pasta Mito",
+    "url": "http://pastamito.com/",
+    "courses": 2,
+    "dishLines": 17,
+    "score": 23,
+    "excerpt": "menú diario con varias opciones y con una relación calidad-precio inmejorable. Comida … More verdaderamente auténtica italiana. Pude probar una carbonara que era un espectáculo, al nivel de los mejores restaurantes itali"
+  },
+  {
+    "restaurant_id": "10946041-e2aa-442b-978c-ffc30de92ad1",
+    "name": "Pasta Mito",
+    "url": "https://pastamito.com/carta-pasta-mito/",
+    "courses": 2,
+    "dishLines": 17,
+    "score": 23,
+    "excerpt": "menú diario con varias opciones y con una relación calidad-precio inmejorable. Comida … More verdaderamente auténtica italiana. Pude probar una carbonara que era un espectáculo, al nivel de los mejores restaurantes itali"
+  }
+]

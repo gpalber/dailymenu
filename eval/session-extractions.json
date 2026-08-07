@@ -1,0 +1,58 @@
+[
+  {
+    "restaurant_id": "3e191a1c-354e-45a2-a5e2-c2072259b27f",
+    "_name": "Río Miño (Centro) — shape A: dishes enumerated on the page",
+    "source_url_contains": "menus-especiales",
+    "offers_menu": true,
+    "kind": "menu_del_dia",
+    "price_eur": 13.0,
+    "price_notes": "13 € de lunes a viernes no festivos; 17 € sábados, domingos y festivos",
+    "includes_text": "Cuatro primeros y cuatro segundos a elegir (varían según el día), postre o café, pan y bebida",
+    "served_text": "Lunes a viernes no festivos (13 €); fines de semana y festivos (17 €)",
+    "freshness": "typical",
+    "as_of_date": null,
+    "confidence": 0.95,
+    "dishes": [
+      { "course": "primero", "name": "Caldo gallego" },
+      { "course": "primero", "name": "Pochas con chorizo" },
+      { "course": "primero", "name": "Ensalada mixta" },
+      { "course": "primero", "name": "Guisantes con jamón" },
+      { "course": "segundo", "name": "Filete de ternera" },
+      { "course": "segundo", "name": "Boquerones fritos" },
+      { "course": "segundo", "name": "Carne guisada" },
+      { "course": "segundo", "name": "Merluza al gusto" }
+    ],
+    "note": "La web publica estos platos como EJEMPLO ('dependiendo del día de la semana'), por eso freshness=typical y no 'today'. No se inventa nada: son los platos textuales de su página."
+  },
+  {
+    "restaurant_id": "09712813-c128-466a-9c29-419d389fa189",
+    "_name": "Spitiko (Chamberí) — shape B: menú = elegir de la carta, con exclusiones",
+    "offers_menu": true,
+    "kind": "menu_del_dia",
+    "price_eur": 14.5,
+    "price_notes": null,
+    "includes_text": "Un primer plato + un segundo plato + postre o café, a elegir de la carta. Excluye: Pikilia, Plato Mixto Carne, Plato Mixto Vegetal, Gyros de Cerdo, Baklava y Cerveza Griega",
+    "served_text": "Lunes a viernes de 13:00 a 16:30",
+    "freshness": "typical",
+    "as_of_date": null,
+    "confidence": 0.95,
+    "dishes": [],
+    "note": "El menú se compone eligiendo de la carta completa, así que no hay lista fija de platos del menú: registramos la composición y las exclusiones, no platos concretos."
+  },
+  {
+    "restaurant_id": "e5f1af03-3c3d-4941-9111-f611a8d1e8bd",
+    "_name": "Terra Mundi (Centro) — shape C: precio con variantes, platos cargados por JS",
+    "source_url_contains": "terramundi.net/",
+    "offers_menu": true,
+    "kind": "menu_del_dia",
+    "price_eur": 15.9,
+    "price_notes": "15,90 € mediodía; 19,90 € noche; 18,50 € fines de semana, festivos y vísperas de festivos",
+    "includes_text": "Primero, segundo, postre y bebida a elegir (configurable en su web)",
+    "served_text": null,
+    "freshness": "typical",
+    "as_of_date": null,
+    "confidence": 0.9,
+    "dishes": [],
+    "note": "Los platos concretos se cargan dinámicamente en su web (JS), así que no están en el snapshot. Precio y variantes sí son textuales."
+  }
+]
